@@ -6,7 +6,7 @@ Note: Due to the specificities of the UK Biobank and All of Us research environm
 ## 1. System requirements
 These scripts were ran on linux with python 3.13.1 and R 4.4.2 though should generalize to any OS.
 For TWAS fine-mapping, the package [B-LORE](https://github.com/soedinglab/b-lore) is required to be installed from source.
-Large amounts of memory may be required for biobank-scale fine-mapping in the per-cohort B-LORE stage (i.e. 400-500GB for UKBB), though the remainder of the code should run smoothly on a standard system.
+Large amounts of memory may be required for biobank scale fine-mapping in the per-cohort B-LORE stage (i.e. 400-500GB for UKBB, stage 6), though the remainder of the code should run smoothly on a standard system.
 
 The following packages are required throughout the scripts:
 ### python
@@ -16,10 +16,9 @@ scipy
 sklearn
 numpy
 pandas
-pickle
 statsmodels
 ```
-### R (only necessary for All of Us PheCode creation)
+### R (only necessary for All of Us PheCode creation, steps 4.1 & 4.2)
 ```
 bigrquery
 tidyverse
@@ -33,14 +32,15 @@ git clone https://github.com/atokolyi/sTWAS_paper_scripts/
 ```
 
 ## 3. Demo
-As raw data from the UKBB and AoU is protected, I have included simulated data to assist in running the novel B-LORE TWAS adaptation. After performing the installation instructions above, run the following to perform the Bayesian fine-mapping and meta-analysis for one condition (disease1) on two biobanks (biobank1 and biobank2).
-Here as in the paper I am using a ZMAX of 10 (maximum number of causal features per LD block), and a PROB_THRESH of 0.5 (causal probability threshold of the posterior probabilities, only used for output display).
+As data from the UKBB and AoU is protected, I have included simulated data to assist in running the B-LORE adaptation for TWAS (steps 6 and 7). After performing the installation instructions above, run the following to perform the Bayesian fine-mapping and meta-analysis for one condition (disease1) on two biobanks (biobank1 and biobank2).
+Here as in the paper I am using a ZMAX of 10 (maximum number of causal features per LD block), and a PROB_THRESH of 0.5 (causal probability threshold of the posterior probabilities, only used for script logging).
 ```
+cd sTWAS_paper_scripts
 python scripts/6_finemapping_BLORE_per_biobank.py disease1 biobank1
 python scripts/6_finemapping_BLORE_per_biobank.py disease1 biobank2
 python scripts/7_finemapping_BLORE_meta_analysis.py 10 0.5
 ```
-The expected output is as follows, two predicted causal expression features including one splicing event (splice3) and one gene (gene4), with approximate posterior probabilities due to procedural stochasticity.
+The expected output is as follows, two predicted causal expression features including one splicing event (splice3) and one gene (gene4), with approximately similar posterior probabilities due to procedural stochasticity.
 ```
 Finished B-LORE meta-analysis for (disease1)
          - 2/20 features with posterior probability > 50.0%:
@@ -49,7 +49,7 @@ Finished B-LORE meta-analysis for (disease1)
 Done!
 ```
 The output of the script is stored in `demo/outputs` and expected output is stored in `demo/expected_output/`.
-A summary file is saved at `demo/outputs/disease1_meta_z10_results.tsv` with posterior probabilities for all tested features (10 transcript splicing events and 10 genes in this case).
+A summary file is saved at `demo/outputs/disease1_meta_z10_results.tsv` with posterior probabilities for all tested features (10 transcript splicing events and 10 genes in this simulated case).
 This demo should run in only a few seconds on a standard desktop computer. 
 
 ## 4. Instructions for use
