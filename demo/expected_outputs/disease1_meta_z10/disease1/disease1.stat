@@ -1,0 +1,5 @@
+1 loci
+20
+0.00646343	 #sigreg: Variance of the Gaussian used as a regulariser for optimization
+0	 #mureg: Mean of the Gaussian used as a regulariser for optimization
+1 covariates

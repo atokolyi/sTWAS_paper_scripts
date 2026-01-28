@@ -83,3 +83,4 @@ with open("ukbb_splice_resid.tsv","w") as fr:
         df = df.drop(['id'],axis=1)
         fr.write(s+"\t"+"\t".join(["{:.4f}".format(x) for x in list(df['resid'])])+"\n")
         fr.flush()
+

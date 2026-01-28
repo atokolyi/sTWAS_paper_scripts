@@ -1,0 +1,7 @@
+1 loci
+20
+0.012856 #sigreg
+0 #mureg
+-0.000135446 #base_v0
+1 #Number of covariate loci
+14 #Number of iterations for optimizing regularizer
