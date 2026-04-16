@@ -29,6 +29,9 @@ stringr
 After installing the above required packages, clone the source code to run the scripts locally.
 ```
 git clone https://github.com/atokolyi/sTWAS_paper_scripts/
+git clone https://github.com/soedinglab/b-lore.git
+cd b-lore
+make # Ensure you have a C++ compiler (e.g. g++)
 ```
 
 ## 3. Demo
