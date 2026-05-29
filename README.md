@@ -31,7 +31,8 @@ After installing the above required packages, clone the source code to run the s
 git clone https://github.com/atokolyi/sTWAS_paper_scripts/
 git clone https://github.com/soedinglab/b-lore.git
 cd b-lore
-make # Ensure you have a C++ compiler (e.g. g++)
+# Ensure you have a C++ compiler (e.g. g++) in path, see B-LORE readme for further details
+make 
 ```
 
 ## 3. Demo
@@ -43,7 +44,7 @@ python scripts/6_finemapping_BLORE_per_biobank.py disease1 biobank1
 python scripts/6_finemapping_BLORE_per_biobank.py disease1 biobank2
 python scripts/7_finemapping_BLORE_meta_analysis.py 10 0.5
 ```
-The expected output is as follows, two predicted causal expression features including one splicing event (splice3) and one gene (gene4), with approximately similar posterior probabilities due to procedural stochasticity.
+If the last command fails due to zstates.so, ensure B-LORE is compiled from source as described in the installation guide. The expected output is as follows, two predicted causal expression features including one splicing event (splice3) and one gene (gene4), with approximately similar posterior probabilities due to procedural stochasticity.
 ```
 Finished B-LORE meta-analysis for (disease1)
          - 2/20 features with posterior probability > 50.0%:
