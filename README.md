@@ -57,4 +57,4 @@ A summary file is saved at `demo/outputs/disease1_meta_z10_results.tsv` with pos
 This demo should run in only a few seconds on a standard desktop computer. 
 
 ## 4. Instructions for use
-Run each step in `scripts` sequentially using your QTLs, RNA-seq cohort expression and genotype matricies (steps 1-3), and biobank EHR and genotype data (steps 3-7).
+Run each step in `scripts` sequentially using your QTLs, RNA-seq cohort expression and genotype matrices (steps 1-3), and biobank EHR and genotype data (steps 3-7).
